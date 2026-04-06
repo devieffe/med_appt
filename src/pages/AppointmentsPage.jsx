@@ -3,13 +3,15 @@ import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import doctors from '../data/doctors'
 import DoctorCard from '../components/DoctorCard'
-import AppointmentForm from '../components/AppointmentForm'
+import AppointmentFormIC from '../components/AppointmentFormIC'
 import DoctorSearch from '../components/DoctorSearch'
 import Notification from '../components/Notification'
 import BookingList from '../components/BookingList'
 import { cancelAppointment } from '../store/bookingsSlice'
+import usePageTitle from '../hooks/usePageTitle'
 
 export default function AppointmentsPage() {
+    usePageTitle('Appointments', 'Book an appointment with a StayHealthy specialist at a time that works for you.')
     const { isAuthenticated } = useSelector((state) => state.auth)
     const { appointments, consultations } = useSelector((state) => state.bookings)
 
@@ -28,14 +30,14 @@ export default function AppointmentsPage() {
     // latest appointment per doctorId
     const latestAppt = useMemo(() => {
         const map = {}
-        ;[...appointments].reverse().forEach((a) => { if (!map[a.doctorId]) map[a.doctorId] = a })
+            ;[...appointments].reverse().forEach((a) => { if (!map[a.doctorId]) map[a.doctorId] = a })
         return map
     }, [appointments])
 
     // latest consultation per doctorId
     const latestConsult = useMemo(() => {
         const map = {}
-        ;[...consultations].reverse().forEach((c) => { if (!map[c.doctorId]) map[c.doctorId] = c })
+            ;[...consultations].reverse().forEach((c) => { if (!map[c.doctorId]) map[c.doctorId] = c })
         return map
     }, [consultations])
 
@@ -172,7 +174,7 @@ export default function AppointmentsPage() {
             </div>
 
             {selectedDoctor && (
-                <AppointmentForm
+                <AppointmentFormIC
                     doctor={selectedDoctor}
                     onClose={() => setSelectedDoctor(null)}
                     onBooked={handleBooked}

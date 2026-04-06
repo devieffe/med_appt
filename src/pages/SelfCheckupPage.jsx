@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Popup from '../components/Popup'
+import usePageTitle from '../hooks/usePageTitle'
 
 /* ─── Know-more content ─────────────────────────────────── */
 const MORE_INFO = {
@@ -114,23 +115,23 @@ function BmiCalc() {
     const bmi = kg && cm ? (parseFloat(kg) / Math.pow(parseFloat(cm) / 100, 2)).toFixed(1) : null
     const cat =
         bmi === null ? null
-        : bmi < 18.5 ? { label: 'Underweight', cls: 'text-primary' }
-        : bmi < 25   ? { label: 'Normal weight', cls: 'text-success' }
-        : bmi < 30   ? { label: 'Overweight', cls: 'text-warning' }
-        : bmi < 35   ? { label: 'Obese (Class I)', cls: 'text-orange' }
-        :               { label: 'Obese (Class II–III)', cls: 'text-danger' }
+            : bmi < 18.5 ? { label: 'Underweight', cls: 'text-primary' }
+                : bmi < 25 ? { label: 'Normal weight', cls: 'text-success' }
+                    : bmi < 30 ? { label: 'Overweight', cls: 'text-warning' }
+                        : bmi < 35 ? { label: 'Obese (Class I)', cls: 'text-orange' }
+                            : { label: 'Obese (Class II–III)', cls: 'text-danger' }
 
     return (
         <div className="border rounded p-3 bg-light">
             <div className="row g-2 align-items-end">
                 <div className="col">
-                    <label className="form-label small mb-1">Weight (kg)</label>
-                    <input type="number" className="form-control form-control-sm" placeholder="e.g. 72"
+                    <label htmlFor="bmi-weight" className="form-label small mb-1">Weight (kg)</label>
+                    <input id="bmi-weight" type="number" className="form-control form-control-sm" placeholder="e.g. 72"
                         value={kg} onChange={e => setKg(e.target.value)} min="1" max="300" />
                 </div>
                 <div className="col">
-                    <label className="form-label small mb-1">Height (cm)</label>
-                    <input type="number" className="form-control form-control-sm" placeholder="e.g. 175"
+                    <label htmlFor="bmi-height" className="form-label small mb-1">Height (cm)</label>
+                    <input id="bmi-height" type="number" className="form-control form-control-sm" placeholder="e.g. 175"
                         value={cm} onChange={e => setCm(e.target.value)} min="50" max="250" />
                 </div>
             </div>
@@ -279,6 +280,7 @@ function StepCard({ step, index, total, onKnowMore }) {
 
 /* ─── Page ──────────────────────────────────────────────── */
 export default function SelfCheckupPage() {
+    usePageTitle('Self Check-Up', 'Guided step-by-step self health check-up: body temperature, blood pressure, and body weight with expert tips.')
     const [moreKey, setMoreKey] = useState(null)
 
     const info = moreKey ? MORE_INFO[moreKey] : null

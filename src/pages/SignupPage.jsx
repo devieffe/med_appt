@@ -1,6 +1,9 @@
 import Sign_Up from '../components/Sign_Up'
 
+import usePageTitle from '../hooks/usePageTitle'
+
 export default function SignupPage() {
+    usePageTitle('Sign Up', 'Create your StayHealthy account to access personalised wellness tools and appointment booking.')
     return (
         <>
             <div className="container mt-4">

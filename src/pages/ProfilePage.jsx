@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import ProfileCard from '../components/ProfileCard'
+import usePageTitle from '../hooks/usePageTitle'
 
 export default function ProfilePage() {
+    usePageTitle('My Profile', 'Manage your StayHealthy profile, personal details, and account settings.')
     const { isAuthenticated } = useSelector((state) => state.auth)
 
     if (!isAuthenticated) {

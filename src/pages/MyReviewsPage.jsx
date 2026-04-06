@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
-import ReviewPopup from '../components/ReviewPopup'
+import { ReviewPopup } from '../components/GiveReviews'
 
 export default function MyReviewsPage() {
+    usePageTitle('My Reviews', 'Write and manage your reviews for StayHealthy doctors and wellness consultations.')
     const { isAuthenticated } = useSelector((s) => s.auth)
     const { appointments, consultations, reviews } = useSelector((s) => s.bookings)
 

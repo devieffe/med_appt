@@ -8,8 +8,10 @@ import ConsultationForm from '../components/ConsultationForm'
 import Notification from '../components/Notification'
 import BookingList from '../components/BookingList'
 import { cancelConsultation } from '../store/bookingsSlice'
+import usePageTitle from '../hooks/usePageTitle'
 
 export default function ConsultationsPage() {
+    usePageTitle('Instant Consultation', 'Connect with a StayHealthy doctor immediately for expert advice without the wait.')
     const { isAuthenticated } = useSelector((state) => state.auth)
     const { appointments, consultations } = useSelector((state) => state.bookings)
 
@@ -28,14 +30,14 @@ export default function ConsultationsPage() {
     // latest appointment per doctorId
     const latestAppt = useMemo(() => {
         const map = {}
-        ;[...appointments].reverse().forEach((a) => { if (!map[a.doctorId]) map[a.doctorId] = a })
+            ;[...appointments].reverse().forEach((a) => { if (!map[a.doctorId]) map[a.doctorId] = a })
         return map
     }, [appointments])
 
     // latest consultation per doctorId
     const latestConsult = useMemo(() => {
         const map = {}
-        ;[...consultations].reverse().forEach((c) => { if (!map[c.doctorId]) map[c.doctorId] = c })
+            ;[...consultations].reverse().forEach((c) => { if (!map[c.doctorId]) map[c.doctorId] = c })
         return map
     }, [consultations])
 
@@ -58,7 +60,7 @@ export default function ConsultationsPage() {
                             className={`nav-link${tab === 'book' ? ' active' : ''}`}
                             onClick={() => setTab('book')}
                         >
-                        <i className="bi bi-phone me-2"></i>Book Consultation
+                            <i className="bi bi-phone me-2"></i>Book Consultation
                         </button>
                     </li>
                     <li className="nav-item">
@@ -68,7 +70,7 @@ export default function ConsultationsPage() {
                         >
                             <i className="bi bi-phone me-2"></i>My Consultations
                             {consultations.length > 0 && (
-                                <span className="badge ms-2" style={{background:'#ff9a3c'}}>{consultations.length}</span>
+                                <span className="badge ms-2" style={{ background: '#ff9a3c' }}>{consultations.length}</span>
                             )}
                         </button>
                     </li>

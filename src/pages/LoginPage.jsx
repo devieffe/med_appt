@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import usePageTitle from '../hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import Login from '../components/Login'
 import users from '../data/users'
@@ -149,6 +150,7 @@ function authenticateUser(email, password) {
 }
 
 export default function LoginPage() {
+    usePageTitle('Log In', 'Log in to your StayHealthy account to manage appointments, reviews, and your health profile.')
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { isAuthenticated } = useSelector((state) => state.auth)

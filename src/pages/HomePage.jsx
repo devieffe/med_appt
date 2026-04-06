@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import usePageTitle from '../hooks/usePageTitle'
 import AboutUsSection from '../components/AboutUsSection'
 import HomeReviewsStripe from '../components/HomeReviewsStripe'
 
 export default function HomePage() {
+    usePageTitle('Home', 'StayHealthy — book appointments, instant consultations, guided self check-ups and expert wellness tips.')
     const navigate = useNavigate()
     const { isAuthenticated } = useSelector((state) => state.auth)
 

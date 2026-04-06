@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+import usePageTitle from '../hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import ReviewCard from '../components/ReviewCard'
-import ReviewForm from '../components/ReviewForm'
+import { ReviewForm } from '../components/GiveReviews'
 import reviews from '../data/reviews'
 
 export default function ReviewsPage() {
+    usePageTitle('Reviews', 'Read patient reviews and share your experience with StayHealthy doctors and wellness services.')
     const [allReviews, setAllReviews] = useState(reviews)
     const { isAuthenticated } = useSelector((s) => s.auth)
     const navigate = useNavigate()

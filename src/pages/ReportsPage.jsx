@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
+import usePageTitle from '../hooks/usePageTitle'
 import { jsPDF } from 'jspdf'
 import BookingsTable from '../components/BookingsTable'
 import Popup from '../components/Popup'
@@ -70,6 +71,7 @@ function buildPdf(booking) {
 }
 
 export default function ReportsPage() {
+    usePageTitle('My Reports', 'View and download PDF health reports for your StayHealthy appointments and consultations.')
     const { isAuthenticated } = useSelector((s) => s.auth)
     const { appointments, consultations } = useSelector((s) => s.bookings)
     const [previewUrl, setPreviewUrl] = useState(null)

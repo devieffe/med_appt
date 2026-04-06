@@ -18,7 +18,7 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main navigation">
             <div className="container-fluid">
                 <div className="d-flex justify-content-between w-100">
                     <NavLink className="navbar-brand" to="/">
@@ -66,7 +66,9 @@ export default function Navbar() {
                                         className="btn btn-outline-secondary dropdown-toggle"
                                         type="button"
                                         data-bs-toggle="dropdown"
+                                        aria-haspopup="true"
                                         aria-expanded="false"
+                                        aria-label="User menu"
                                     >
                                         <i className="bi bi-person-circle me-1"></i>
                                         <UserName name={user?.username || user?.email} role={user?.role} />

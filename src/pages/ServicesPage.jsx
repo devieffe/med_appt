@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import ServicesCardsGrid from '../components/ServicesCardsGrid'
+import usePageTitle from '../hooks/usePageTitle'
 
 export default function ServicesPage() {
+    usePageTitle('Services', 'Explore StayHealthy services: instant consultations, doctor appointments, guided self check-ups, and health tips.')
     const navigate = useNavigate()
 
     return (
