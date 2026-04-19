@@ -4,12 +4,30 @@ A full-featured health & wellness platform built with **React 18 + Vite**, allow
 
 ---
 
+## 📘 Project
+
+This project is a submission for the IBM Front-End Developer course. It demonstrates intermediate-level practical skills in frontend development, including React, state management, routing, and user flows. 
+
+More advanced techniques will be implemented in future updates. 
+
+### 🏅 Certifications
+
+- **IBM Front-End Development Capstone Project**  
+  https://www.credly.com/badges/348902cd-4e26-4e60-bbd1-01446e96c84c  
+
+- **IBM Front-End Developer Professional Certificate**  
+  https://www.credly.com/badges/4f1eb052-2671-4381-9898-da620b9bb036  
+
+
+---
+
 ## Tech Stack
 
 | Layer | Technology |
 |---|---|
 | UI Framework | React 18 |
-| Build Tool | Vite 5 |
+| Language | JavaScript (ES6+, JSX) |
+| Build Tool | Vite |
 | State Management | Redux Toolkit |
 | Routing | React Router v6 |
 | Styling | Bootstrap 5 + Bootstrap Icons |
@@ -100,7 +118,21 @@ src/
 
 ---
 
-## 🔧 Features
+## Features
+
+### 🏠 Home page
+- Overview of platform features and navigation
+- Quick access to doctors, appointments, and user actions
+- Auth-aware UI (login state reflected in Navbar and available actions)
+- Entry points for booking appointments and managing existing ones
+- Hero section with key messaging, CTA, and quick entry into core flows 
+- Dynamic moving reviews panel showcasing recent user reviews
+- Footer with secondary navigation, contact details, and supporting links
+
+### 👤 Auth (Frontend)
+- Redux-based login/logout (no backend — state is in-memory)
+- Auth-aware Navbar dropdown with profile, reviews, reports links
+- `authSlice` manages `isAuthenticated` + `user` state
 
 ### 🗓️ Appointments
 - Browse doctors by name or specialty
@@ -128,11 +160,6 @@ src/
 ### 📄 Reports
 - Generate and download PDF reports for appointments and consultations
 - Powered by **jsPDF**
-
-### 👤 Auth (Frontend)
-- Redux-based login/logout (no backend — state is in-memory)
-- Auth-aware Navbar dropdown with profile, reviews, reports links
-- `authSlice` manages `isAuthenticated` + `user` state
 
 ---
 
