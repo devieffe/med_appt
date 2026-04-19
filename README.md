@@ -6,7 +6,7 @@ A full-featured health & wellness platform built with **React 18 + Vite**, allow
 
 ## 📘 Project
 
-This project is a submission for the IBM Front-End Developer course. It demonstrates intermediate-level practical skills in frontend development, including React, state management, routing, and user flows. 
+This project is a submission for the IBM Front-End Developer course. It shows beginner to intermediate level practical skills in frontend development, including React, state management, routing, and user flows. 
 
 More advanced techniques will be implemented in future updates. 
 
