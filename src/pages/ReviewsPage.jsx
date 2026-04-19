@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import usePageTitle from '../hooks/usePageTitle'
-import { useNavigate } from 'react-router-dom'
 import ReviewCard from '../components/ReviewCard'
 import { ReviewForm } from '../components/GiveReviews'
 import reviews from '../data/reviews'
@@ -10,7 +9,6 @@ export default function ReviewsPage() {
     usePageTitle('Reviews', 'Read patient reviews and share your experience with StayHealthy doctors and wellness services.')
     const [allReviews, setAllReviews] = useState(reviews)
     const { isAuthenticated } = useSelector((s) => s.auth)
-    const navigate = useNavigate()
 
     const handleNewReview = (newReview) => {
         setAllReviews((prev) => [newReview, ...prev])
@@ -37,12 +35,6 @@ export default function ReviewsPage() {
                 <div className="text-center mt-5">
                     {isAuthenticated ? (
                         <>
-                            <button
-                                className="btn btn-primary"
-                                onClick={() => navigate('/my-reviews')}
-                            >
-                                <i className="bi bi-pencil-square me-2"></i>Write a Review
-                            </button>
                             <ReviewForm onReviewSubmit={handleNewReview} />
                         </>
                     ) : (
