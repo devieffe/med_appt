@@ -21,6 +21,10 @@ More advanced techniques will be implemented in future updates.
 
 ---
 
+![StayHealthy screenshot](docs/media/scr1.jpg)
+
+---
+
 ## Tech Stack
 
 | Layer | Technology |
