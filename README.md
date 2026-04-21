@@ -218,4 +218,4 @@ Dynamic per-page titles and meta descriptions via the `usePageTitle` hook.
 
 ## 🔗 Deployed
 
-[hhttps://ibm-fe-final.netlify.app](https://ibm-fe-final.netlify.app)
+[https://ibm-fe-final.vercel.app](https://ibm-fe-final.vercel.app)
